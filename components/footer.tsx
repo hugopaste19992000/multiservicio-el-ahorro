@@ -117,11 +117,11 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:multiservicioelahorro@gmail.com"
+                  href="mailto:gladyspaste2014@gmail.com"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="w-5 h-5 text-primary" />
-                  <span>multiservicioelahorro@gmail.com</span>
+                  <span>gladyspaste2014@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-muted-foreground">

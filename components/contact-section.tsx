@@ -19,17 +19,30 @@ export function ContactSection() {
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsLoading(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setIsLoading(false)
-    setIsSubmitted(true)
-    
-    // Reset after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000)
+e.preventDefault()
+
+const formData = new FormData(e.currentTarget)
+
+const nombre = formData.get("name")
+const telefono = formData.get("phone")
+const vehiculo = formData.get("vehicle")
+const servicio = formData.get("service")
+const mensaje = formData.get("message")
+
+const texto =
+  " SOLICITUD DE CITA - TALLER AUTOMOTRIZ\n\n" +
+  " Cliente: " + nombre + "\n" +
+  " Teléfono: " + telefono + "\n" +
+  " Vehículo: " + vehiculo + "\n" +
+  " Servicio solicitado: " + servicio + "\n\n" +
+  " Detalle del problema:\n" +
+  mensaje + "\n\n" +
+  "Por favor confirmar disponibilidad para agendar la cita."
+
+const whatsappUrl =
+  "https://wa.me/593983020864?text=" + encodeURIComponent(texto)
+
+window.open(whatsappUrl, "_blank")
   }
 
   return (
@@ -133,7 +146,7 @@ export function ContactSection() {
                       <option value="">Seleccionar...</option>
                       <option value="alineacion">Alineación</option>
                       <option value="balanceo">Balanceo</option>
-                      <option value="ambos">Alineación y Balanceo</option>
+                      <option value="Alineación y Balanceo">Alineación y Balanceo</option>
                       <option value="enllantaje">Enllantaje</option>
                       <option value="suspension">Revisión de suspensión</option>
                       <option value="otro">Otro</option>
